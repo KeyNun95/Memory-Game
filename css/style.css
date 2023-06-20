@@ -36,9 +36,9 @@ body {
     transition: all 0.8s ease;
   }
 
-  #card {
+  /* #card {
     height: 100px;
     background-color: white;
     border: 0.1vmin solid grey;
     cursor: pointer;
-  }
+  } */
