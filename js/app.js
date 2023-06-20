@@ -1,5 +1,5 @@
 /*----- constants -----*/
-
+const allTheCards = document.querySelector(".cards");
 /*----- state variables -----*/
 //identify first card selection
 //identify second card selection

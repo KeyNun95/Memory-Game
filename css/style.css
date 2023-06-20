@@ -21,6 +21,7 @@ body {
 
   p {
     margin: 10px 10px 10px 10px;
+    color: white;
   }
 
   .cards {
@@ -39,4 +40,5 @@ body {
     height: 100px;
     background-color: white;
     border: 0.1vmin solid grey;
+    cursor: pointer;
   }
