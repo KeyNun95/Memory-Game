@@ -5,19 +5,28 @@ const cardsVariety = [...cardPictures, ...cardPictures];
 const cardsTotal = cardsVariety.length;
 
 /*----- state variables -----*/
-//build cards on board
+//build cards on board- number of cards change as cards are matched
 function fillCard(cardPicture){
     let element = document.createElement("div");
-
+    //will make new div section
     element.classList.add("card");
-    element.setAttribute("")
+    //will make new class inside my new div
+    element.setAttribute("picture", cardPicture);
+
+    return element;
 }
 //needed to loop pictures into cards
 for (let i = 0; i < cardsTotal; i++){
-    const cardPicture = cardsVariety;
-
-    console.log(cardPicture);
+    let randomIndex = Math.floor(Math.random() * cardsVariety.length);
+    //so cards can be in random places
+    let cardPicture = cardsVariety[randomIndex];
+    //card can have pictre in it
+    let card = fillCard(cardPicture); 
+    
+    allTheCards.appendChild(card);
+    //will attach card inside cards section in body:html
 }
+
 //identify first card selection
 //identify second card selection
 
