@@ -36,26 +36,8 @@ body {
   
   .card {
     height: 150px;
+    width: 100%;
     background-color: white;
     border: 0.1vmin solid grey;
     cursor: pointer; /*shows element is interactive */
-  }
-
-  .front, .back {
-    height: 100%;
-    width: 100%;
-  }
-
-  .front {
-    background-image: url("https://w0.peakpx.com/wallpaper/302/597/HD-wallpaper-blue-abstract-background-glitter-shiny-sparkling.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .back {
-    background-image: url("https://media.npr.org/assets/img/2023/01/14/this-is-fine_sq-0bd6d8072e991dc4708be3668cd480ae7df18a11-s800-c85.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    transform-style: preserve-3d;
-    transition: all 0.8s ease;
   }
