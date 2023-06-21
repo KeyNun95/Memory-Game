@@ -35,10 +35,15 @@ for (let i = 0; i < cardsTotal; i++){
 
 /*----- event listeners -----*/
 //click so cards can be selected
+element.addEventListener('click', flip){
+    setTimeout (waitingForMatch, 500);
+}
 //board clearedor not = result message
 /*----- functions -----*/
 //make card flip upon clicking
-
+function flipCard() {
+    firstCard.push(cardPictures(cardPicture))
+}
 //start button
 
 //play again button
