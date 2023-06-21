@@ -1,7 +1,8 @@
 /*----- constants -----*/
 const allTheCards = document.querySelector(".cards");
-const cardPictures = ['kermit', 'pikachu', 'doge', 'monkey', 'pepe', 'spongebob', 'looking-back guy', 'cat sitting at table', 'butterfly guy', 'emotional damage'];
-const cardsVariety = [...cardPictures, ...cardPictures];
+//address parent section
+const cardPictures = ['kermit', 'pikachu', 'doge', 'monkey', 'pepe', 'this is fine', 'kronk', 'cat sitting at table', 'butterfly guy', 'emotional damage'];
+const cardsVariety = [...cardPictures, ...cardPictures]; //make the images comeback to my 
 const cardsTotal = cardsVariety.length;
 
 /*----- state variables -----*/
