@@ -24,6 +24,10 @@ body {
     color: white;
   }
 
+  #pairs {
+    color: white;
+  }
+
   .cards {
     display: grid;
     width: max-content;

@@ -71,6 +71,9 @@ let paused = true;
 //identify first card selection
 //identify second card selection
 let selectedCards = [];
+let pairsCount = document.querySelector("span");//could this have worked with the class?
+let pairs = 0; //will go up as matches are made
+pairsCount.textContent = pairs;
 
 //build cards on board- number of cards change as cards are matched
 function fillCard(cardPicture) {
@@ -90,16 +93,19 @@ function fillCard(cardPicture) {
       ) {
         console.log("match");
         selectedCards = [];
+        pairs++;
+        pairsCount.textContent = pairs;
       } else {
         console.log("wrong");
         const wrongCards = selectedCards.map(function(cardObj){
             return document.getElementById(cardObj.name)
         })//wrap line 98 thru 102 in setTimeOut function
-
+        setTimeout(() => {
         wrongCards.forEach(function(wrongCardEl){
             wrongCardEl.src = cardPictures[0].front;
+            wrongCardEl.removeAttribute('id');
         })
-        selectedCards = [];
+        selectedCards = []}, 1000);
       }
     }
   });
@@ -111,6 +117,7 @@ for (let i = 0; i < cardsTotal; i++) {
   let randomIndex = Math.floor(Math.random() * cardsVariety.length);
   //so cards can be in random places
   let cardPicture = cardsVariety[randomIndex];
+  cardsVariety.splice(randomIndex, 1);
   //card can have pictre in it
   let card = fillCard(cardPicture);
 
@@ -137,10 +144,10 @@ for (let i = 0; i < cardsTotal; i++) {
 // }
 
 //Checklist:
-//match function
 //start button
 //play again button
 //you win message
 //you lose message
 //pairs
 //timer?
+//readme
