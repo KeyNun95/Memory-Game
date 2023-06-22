@@ -18,7 +18,7 @@ const cardPictures = [
     src: "https://w0.peakpx.com/wallpaper/112/1021/HD-wallpaper-why-are-you-running-funy-meme.jpg",
     front: "https://w0.peakpx.com/wallpaper/302/597/HD-wallpaper-blue-abstract-background-glitter-shiny-sparkling.jpg"}, 
     {name: "doge",
-    src: "https://images.hindustantimes.com/img/2021/11/03/1600x900/Doge_meme_dog_birthday_1635925455510_1635925462309.PNG",
+    src: "https://imgflip.com/s/meme/Doge-2.jpg",
     front: "https://w0.peakpx.com/wallpaper/302/597/HD-wallpaper-blue-abstract-background-glitter-shiny-sparkling.jpg"}, 
     {name: "uganda knuckles",
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbgDLYjhbuakKXOgxpC-CAk74hCGoxEa_uFA&usqp=CAU",
@@ -47,8 +47,17 @@ function fillCard(cardPicture){
     img.addEventListener("click", function(){
         //when button is click img.src will change to cardPicture.src
         img.src = cardPicture.src;
-    });
 
+        let selectedCard = false;
+        let firstCard;
+        let secondCard;
+
+        if(!selectedCard){
+            selectedCard = true;
+            firstCard = this;
+        }
+        console.log({selectedCard, firstCard});
+    });
     return img;
 }
 
@@ -66,6 +75,16 @@ for (let i = 0; i < cardsTotal; i++){
     //will attach card inside cards section in body:html
 }
 
+let selectedCard = false;
+let firstCard;
+let secondCard;
+
+if(!selectedCard){
+    selectedCard = true;
+    firstCard = this;
+
+    console.log()
+}
 //identify first card selection
 //identify second card selection
 
