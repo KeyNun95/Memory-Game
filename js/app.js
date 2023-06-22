@@ -1,5 +1,6 @@
 /*----- constants -----*/
 const allTheCards = document.querySelector(".cards");
+const winnerMessage = document.querySelector("#winner-message");
 //address parent section
 const cardPictures = [
   {
@@ -94,7 +95,10 @@ function fillCard(cardPicture) {
         console.log("match");
         selectedCards = [];
         pairs++;
-        pairsCount.textContent = pairs;
+        pairsCount.textContent = pairs;// each time a match is made counter will go up
+        if(pairs === 10) {
+            winnerMessage.textContent = "Winner!";
+        }
       } else {
         console.log("wrong");
         const wrongCards = selectedCards.map(function(cardObj){
@@ -147,7 +151,5 @@ for (let i = 0; i < cardsTotal; i++) {
 //start button
 //play again button
 //you win message
-//you lose message
-//pairs
 //timer?
 //readme
