@@ -36,32 +36,32 @@ const cardsVariety = [...cardPictures, ...cardPictures]; //make the images comeb
 const cardsTotal = cardsVariety.length;
 
 /*----- state variables -----*/
+let selectedCard = false;
+//identify first card selection
+//identify second card selection
+let firstCard;
+let secondCard;
+
 //build cards on board- number of cards change as cards are matched
 function fillCard(cardPicture){
     let img = document.createElement("img");
-    //will make new div section
-    img.src = cardPicture.front
-
-    img.classList.add("card") //<img class
-    //will make new class inside my new div
+    img.src = cardPicture.front//this sets the front of the card
+    img.classList.add("card") //lines 47-49 basically make <img class="dbhjbsd" src="link.jpg"/>
     img.addEventListener("click", function(){
-        //when button is click img.src will change to cardPicture.src
+        //when button is clicked img.src will change to cardPicture.src
         img.src = cardPicture.src;
-
-        let selectedCard = false;
-        let firstCard;
-        let secondCard;
 
         if(!selectedCard){
             selectedCard = true;
             firstCard = this;
+        }else{
+            selectedCard = false;
+            secondCard = this;
         }
-        console.log({selectedCard, firstCard});
+        console.log({firstCard, secondCard});
     });
     return img;
 }
-
-// topOfCard(card);
 
 //needed to loop pictures into cards
 for (let i = 0; i < cardsTotal; i++){
@@ -75,18 +75,6 @@ for (let i = 0; i < cardsTotal; i++){
     //will attach card inside cards section in body:html
 }
 
-let selectedCard = false;
-let firstCard;
-let secondCard;
-
-if(!selectedCard){
-    selectedCard = true;
-    firstCard = this;
-
-    console.log()
-}
-//identify first card selection
-//identify second card selection
 
 /*----- cached elements -----*/
 
@@ -105,6 +93,11 @@ if(!selectedCard){
 // function flipCard() {
 //     firstCard.push(cardPictures(cardPicture))
 // }
-//start button
 
+//Checklist:
+//start button
 //play again button
+//you win message
+//you lose message
+//pairs
+//timer?
