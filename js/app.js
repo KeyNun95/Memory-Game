@@ -95,6 +95,7 @@ for (let i = 0; i < cardsTotal; i++){
 // }
 
 //Checklist:
+//match function
 //start button
 //play again button
 //you win message
