@@ -66,6 +66,8 @@ const cardPictures = [
 ];
 const cardsVariety = [...cardPictures, ...cardPictures]; //make the images comeback to my
 const cardsTotal = cardsVariety.length;
+const startButton = document.querySelector('#start-game');
+const restartButton = document.querySelector('#restart-game');
 
 /*----- state variables -----*/
 let paused = true;
@@ -75,6 +77,8 @@ let selectedCards = [];
 let pairsCount = document.querySelector("span");//could this have worked with the class?
 let pairs = 0; //will go up as matches are made
 pairsCount.textContent = pairs;
+restartButton.disabled = true;
+restartButton.style.visibility = "hidden";
 
 //build cards on board- number of cards change as cards are matched
 function fillCard(cardPicture) {
@@ -97,19 +101,21 @@ function fillCard(cardPicture) {
         pairs++;
         pairsCount.textContent = pairs;// each time a match is made counter will go up
         if(pairs === 10) {
-            winnerMessage.textContent = "Winner!";
+            winnerMessage.textContent = "🎊 Winner! 🎊";
+            restartButton.disabled = false;
+            restartButton.style.visibility = "visible";
         }
       } else {
-        console.log("wrong");
-        const wrongCards = selectedCards.map(function(cardObj){
-            return document.getElementById(cardObj.name)
-        })//wrap line 98 thru 102 in setTimeOut function
+            console.log("wrong");
+            const wrongCards = selectedCards.map(function(cardObj){
+                return document.getElementById(cardObj.name)
+            })//wrap line 109 thru 111 in setTimeOut function
         setTimeout(() => {
-        wrongCards.forEach(function(wrongCardEl){
-            wrongCardEl.src = cardPictures[0].front;
-            wrongCardEl.removeAttribute('id');
-        })
-        selectedCards = []}, 1000);
+            wrongCards.forEach(function(wrongCardEl){
+                wrongCardEl.src = cardPictures[0].front;
+                wrongCardEl.removeAttribute('id');
+            })
+        selectedCards = []}, 500);
       }
     }
   });
@@ -117,39 +123,33 @@ function fillCard(cardPicture) {
 }
 
 //needed to loop pictures into cards
-for (let i = 0; i < cardsTotal; i++) {
-  let randomIndex = Math.floor(Math.random() * cardsVariety.length);
-  //so cards can be in random places
-  let cardPicture = cardsVariety[randomIndex];
-  cardsVariety.splice(randomIndex, 1);
-  //card can have pictre in it
-  let card = fillCard(cardPicture);
-
-  allTheCards.appendChild(card);
-  //will attach card inside cards section in body:html
+function start() {
+    startButton.disabled = true;
+    startButton.style.visibility = "hidden";
+    let deck = JSON.parse(JSON.stringify(cardsVariety));//clones cardsVariety so splice doesnt empty out my array
+    for (let i = 0; i < cardsTotal; i++) {
+        let randomIndex = Math.floor(Math.random() * deck.length);
+        //so cards can be in random places
+        let cardPicture = deck[randomIndex];
+        deck.splice(randomIndex, 1);
+        //card can have pictre in it
+        let card = fillCard(cardPicture);
+        allTheCards.appendChild(card);
+    }
+    //will attach card inside cards section in body:html
 }
 
-/*----- cached elements -----*/
-
-/*----- event listeners -----*/
-//click so cards can be selected
-// element.addEventListener("click", function(){
-//     if (wrongCard){
-//         return; //exit function- will return back to front of card
-//     }
-
-//     element.style.backgroundColor = cardPicture;
-// });
-// //board clearedor not = result message
-// /*----- functions -----*/
-// //make card flip upon clicking
-// function flipCard() {
-//     firstCard.push(cardPictures(cardPicture))
-// }
+//restart
+function restart(){
+    pairs = 0;
+    pairsCount.textContent = pairs;
+    document.querySelectorAll('.card').forEach(e => e.remove());//removes form html so start can put it back
+    restartButton.disabled = true;
+    restartButton.style.visibility = "hidden";
+    winnerMessage.textContent = "";
+    start();
+};
 
 //Checklist:
-//start button
-//play again button
-//you win message
 //timer?
 //readme
